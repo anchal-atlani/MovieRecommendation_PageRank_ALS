@@ -6,23 +6,43 @@
 ## Team Members
   * Anchal Atlani - aatlani@uncc.edu 801084129
   * Srishtee Marotkar - smarotka@uncc.edu 801084153
+  
 ## Overview
+To design and compare two movie recommendation systems for a user based on self or similar user’s likings. We will be implementing two recommendation systems, first Using the Personalized PageRank algorithm and second using the Matrix Factorization using Alternate Least Square algorithm on the distributed computing environment
 
 ## Task Involved
+  
   * Data Preprocessing:
+  * Implementation of Personalized Page Rank Algorithm 
+  * Implementation of Matrix Factorizion using ALS
+  * Execution of Algorithms on AWS EMR
+  * Analysis of Results
+  * Report Preparation
   
 
 ## Approach
+* Personalized Page Rank:
+  For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and Authority.
+  We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user product interaction and try to recomment movies to user based on the liking of user similar to the user.
+  
+  rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
+  rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
+  
+  Using above equation we are calculating global ranking of the movies 
+ 
+ 
+ 
   ## Page Rank ALgo and ALS Algo, framework, other pacakages, nltk, numpy
 ## Step Implemented
 ## Final Product
+ 
 ## Results
 
   ### Movie Recommendation using PageRank and Hubs and Authority
-  #### Personlized Movie Rankings
+  * **Personlized Movie Rankings**
   Tested for userid  '1110480', the results are below for top 200 movies.
   
- * **Observation**: 
+  * **Observation**: 
    * The top movies contains first the movies which the user rated from this we conclude that the personalization is taking effect as the     movies which was watched by that user got the higher ranking compare to other movies. In our test case below the user has watched       180 movies and thus those 180 movies got high ranking. So, to recommend a new movie to user we will peek out first his watched           movies and all the movies there after are the recommended movies. 
    
    * Also the ranking of movie is not depending on how many users have watched the movie but it does depend on the user for which we are searching the recommendation. This is important observation to understand how we can personalize the recommendation using teleportation.
@@ -361,7 +381,7 @@
     |----|------------|-------|
     | 20 | 20 | {}|
     | 50 | 20 | {}|
-    | 70 | 20 | {} |
+    | 70 | 3| {1: 0.636694 ,2: 0.636562, 3: 0.633828} |
 
       
       
