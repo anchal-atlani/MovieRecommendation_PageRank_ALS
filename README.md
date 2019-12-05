@@ -362,7 +362,23 @@
 
  
 ## Work Division
+| Task |  Srishtee Marotkar | Anchal Atlani|
+|----|------------|-------|
+| Topic Selection and  Finding Data Set | Yes | Yes|
+| Understanding of how Page Rank and ALS equations can be used for the recommendation system | Yes | Yes|
+| Data Preprocessing for Page Rank | Yes | Yes|
+| Creation of Link Graph | Yes | Yes|
+| Implementation of personalized page rank| Yes | Yes|
+| Execution and Analysis of the Results| Yes | Yes|
+| Preprocessing for Matrix Fatcorization| Yes | Yes|
+| Creation of rating matrix from the Dataset| Yes | Yes|
+| Implementation of Alternate Least Square Algorithm| Yes | Yes|
+| Execution and Analysis of the Results| Yes | Yes|
+| Final Submission Report| Yes | Yes|
+
+
 ## References
+ * 
 
 ## Context and Motivation for the page Rank and useful fun factors
 ## Data Set descriptions
