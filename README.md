@@ -1,11 +1,17 @@
 # MovieRecommendation_PageRank_ALS
 
-## Create Web Page
 
-## Title 
+## Movie Recommendation Using Personalized Page Rank and Matrix Factorization using ALS
+
 ## Team Members
+  * Anchal Atlani - aatlani@uncc.edu 801084129
+  * Srishtee Marotkar - smarotka@uncc.edu 801084153
 ## Overview
+
 ## Task Involved
+  * Data Preprocessing:
+  
+
 ## Approach
   ## Page Rank ALgo and ALS Algo, framework, other pacakages, nltk, numpy
 ## Step Implemented
@@ -378,7 +384,13 @@
 
 
 ## References
- * 
+* https://web.stanford.edu/class/msande233/handouts/lecture8.pdf
+* https://stanford.edu/~rezab/classes/cme323/S16/projects_reports/parthasarathy_tea.pdf  
+* https://github.com/pinnareet/CME323DSGD/blob/master/DSGD.py
+* https://blog.insightdatascience.com/explicit-matrix-factorization-als-sgd-and-all-that-jazz-b00e4d9b21ea
+* https://pdfs.semanticscholar.org/2962/86ee15e413b39295c78387080e36c822cfd2.pdf 
+* https://web.stanford.edu/~ashishg/msande235/spr08_09/Lecture13.pdf
+* https://www.nltk.org/
 
 ## Context and Motivation for the page Rank and useful fun factors
 ## Data Set descriptions
