@@ -16,18 +16,19 @@
   #### Personlized Movie Rankings
   Tested for userid  '1110480', the results are below for top 200 movies.
   
- Observation: 
-  * The top movies contains first the movies which the user rated from this we conclude that the personalization is taking effect as the      movies which was watched by that user got the higher ranking compare to other movies. In our test case below the user has watched 180 movies and thus those 180 movies got high ranking. So, to recommend a new movie to user we will peek out first his watched movies and all the movies there after are the recommended movies. 
+ * **Observation: 
+  * The top movies contains first the movies which the user rated from this we conclude that the personalization is taking effect as the     movies which was watched by that user got the higher ranking compare to other movies. In our test case below the user has watched       180 movies and thus those 180 movies got high ranking. So, to recommend a new movie to user we will peek out first his watched           movies and all the movies there after are the recommended movies. 
   
-  This can be verfied by seeing the link graph of customer 
-  ### Link Graph: (UserId, [movies watched by user id], (rank=1/ (total number of users) )
+    This can be verfied by seeing the link graph of customer 
+  * **Link Graph: (UserId, [movies watched by user id], (rank=1/ (total number of users) )
   
-  **('1110480', (['28', '30', '46', '187', '191', '241', '290', '297', '311', '312', '313', '329', '331', '353', '357', '393', '471', '482', '534', '571', '607', '645', '758', '788', '886', '897', '989', '1039', '1102', '1180', '1250', '1428', '1470', '1503', '1509', '1590', '1673', '1719', '1754', '1770', '1865', '1905', '1962', '1974', '2015', '2016', '2095', '2122', '2172', '2342', '2372', '2395', '2452', '2462', '2465', '2470', '2519', '2699', '2743', '2862', '2874', '2940', '3151', '3197', '3282', '3368', '3371', '5085', '5181', '5226', '5227', '5231', '5237', '5401', '5472', '5496', '5522', '5538', '5582', '5601', '5658', '5695', '5762', '5788', '5814', '5862', '5926', '5963', '6029', '6034', '6040', '6042', '6099', '6134', '6195', '6219', '6274', '6329', '6337', '6350', '6366', '3446', '3510', '3593', '3624', '3648', '3684', '3713', '3782', '3817', '3860', '3875', '3905', '3917', '3938', '3954', '4043', '4141', '4227', '4345', '4384', '4432', '4488', '4586', '4588', '4641', '4660', '4727', '4745', '4829', '4890', '4906', '4912', '4951', '5020', '6450', '6464', '6473', '6475', '6555', '6596', '6736', '6796', '6850', '6872', '6874', '6953', '6960', '6974', '7237', '7281', '7363', '7511', '7513', '7517', '7586', '7635', '7683', '7701', '7786', '7904', '7928', '7971', '8045', '8131', '8197', '8393', '8469', '8619', '8644', '8743', '8782', '8806', '8832', '8846', '8872', '8966', '9051', '9170', '9175'], 2.1105684605091537e-06))**
+  * **('1110480', (['28', '30', '46', '187', '191', '241', '290', '297', '311', '312', '313', '329', '331', '353', '357', '393', '471', '482', '534', '571', '607', '645', '758', '788', '886', '897', '989', '1039', '1102', '1180', '1250', '1428', '1470', '1503', '1509', '1590', '1673', '1719', '1754', '1770', '1865', '1905', '1962', '1974', '2015', '2016', '2095', '2122', '2172', '2342', '2372', '2395', '2452', '2462', '2465', '2470', '2519', '2699', '2743', '2862', '2874', '2940', '3151', '3197', '3282', '3368', '3371', '5085', '5181', '5226', '5227', '5231', '5237', '5401', '5472', '5496', '5522', '5538', '5582', '5601', '5658', '5695', '5762', '5788', '5814', '5862', '5926', '5963', '6029', '6034', '6040', '6042', '6099', '6134', '6195', '6219', '6274', '6329', '6337', '6350', '6366', '3446', '3510', '3593', '3624', '3648', '3684', '3713', '3782', '3817', '3860', '3875', '3905', '3917', '3938', '3954', '4043', '4141', '4227', '4345', '4384', '4432', '4488', '4586', '4588', '4641', '4660', '4727', '4745', '4829', '4890', '4906', '4912', '4951', '5020', '6450', '6464', '6473', '6475', '6555', '6596', '6736', '6796', '6850', '6872', '6874', '6953', '6960', '6974', '7237', '7281', '7363', '7511', '7513', '7517', '7586', '7635', '7683', '7701', '7786', '7904', '7928', '7971', '8045', '8131', '8197', '8393', '8469', '8619', '8644', '8743', '8782', '8806', '8832', '8846', '8872', '8966', '9051', '9170', '9175'], 2.1105684605091537e-06))**
   
   
-  ### Recommended Movie : (Movie_id, Title, Rank, Total Users watched the movie) :
-  #### Recommended movies starting are highlighted as bold, also these movies are watched by the users who watched the movies watched by        this user.
+  * **Recommended Movie : (Movie_id, Title, Rank, Total Users watched the movie) :
+   Recommended movies starting are highlighted as bold, also these movies are watched by the users who watched the movies watched by        this user.
       ####
+      ##### Movies Watched By user #######
       ('1905', 'Pirates of the Caribbean: The Curse of the Black Pearl', 0.0055328796947541675, 153325)
       ('2452', 'Lord of the Rings: The Fellowship of the Ring', 0.005418893550783347, 129794)
       ('571', 'American Beauty', 0.00541744969469533, 111768)
@@ -177,6 +178,11 @@
       ('4586', "But I'm a Cheerleader", 0.0047790335813730905, 7194)
       ('6337', 'Joe Dirt', 0.004778589376610543, 10642)
       ('897', 'Bride and Prejudice', 0.0047729226604528805, 5399)
+      
+      ##### END Movies Watched By user #######
+      
+      
+      #### Start of Movies Recommened to user #####
       ('6040', 'The L Word: Season 1', 0.004772589562512087, 5121)
       ('187', 'Death to Smoochy', 0.0047708906878448035, 6980)
       ('7363', 'Moonlight Mile', 0.004769586092009992, 4891)
