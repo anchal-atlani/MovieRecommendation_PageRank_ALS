@@ -30,6 +30,7 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
 ## Approach
 * **Personalized Page Rank:**
   For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and         Authority.
+  
   We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach   we are taking user product interaction and try to recommend movies to user based on the liking of similar user with a given   user.
   
        rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
@@ -41,34 +42,34 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
         
         Here, e is teleporation factor and it is added when we match a user id of the user for which we want to find the recommendation.
         
-       
-  * **Matrix Factorization using ALS:**
-    
-    We have implemented Matrix Factorization using the Alternate Mean Square method. In this, we are first creating a sparse matrix that will have rating information on the movie watched by the users.
-    
-    For Generating the factorized matrix we have used the ALS method.  To run this algorithm on a distributed environment we have referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015 
- http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr " .
-  
-   In this first, we have created a Rating Matrix having original ratings and initialised two matrices with random values 
-    corresponds to the P and Q matrix.
-  
-   In each iteration as per the ALS method we are keeping first P constant and trying to predict values for Q and then 
-   keeping Q constant and trying to predict values for P. Since each row updation of each matrix is independent of each 
-   other and hence they can be updated independently and then we can get a overall matrix.
- 
-                Minimize objective fuction
-                 p= (sum(QTQ) + lambda* I)^-1* sum(rating_ui * Q)
-                 q= (sum(PTP) +lambda *I)^-1 * sum(rating_ui * P)
+
+ * **Matrix Factorization using ALS:**
+
+   We have implemented Matrix Factorization using the Alternate Mean Square method. In this, we are first creating a sparse matrix that will have rating information on the movie watched by the users.
+
+   For Generating the factorized matrix we have used the ALS method.  To run this algorithm on a distributed environment we have referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015 
+http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr " .
+
+  In this first, we have created a Rating Matrix having original ratings and initialised two matrices with random values 
+   corresponds to the P and Q matrix.
+
+  In each iteration as per the ALS method we are keeping first P constant and trying to predict values for Q and then 
+  keeping Q constant and trying to predict values for P. Since each row updation of each matrix is independent of each 
+  other and hence they can be updated independently and then we can get a overall matrix.
+
+               Minimize objective fuction
+                p= (sum(QTQ) + lambda* I)^-1* sum(rating_ui * Q)
+                q= (sum(PTP) +lambda *I)^-1 * sum(rating_ui * P)
                   
- ## Pacakages Used
-    * nltk, numpy, spark
+ ## Pacakages and Language Used 
+   * python, nltk, spark, AWS EMR, S3, numpy
 ## Step Implemented
 
    * In Page Rank we have taken complete corpus and we got 9201 unique movies and 470860 unique users.
    * For both the algorithm we have taken only movies which are rated 4 and above as in Page Rank we are considering to recommend movies which are liked by other users and liking we are defining in terms of rating.
    * For Page Rank Algorithm we have just read the data file and converted a link graph out of it.
    * After the complete eecution of Page Rank we are mapping the movie id with thier respective titles.
-   *	For the matrix factorization since the customer id were not in sequence so we have created a label mapping for each customer id as       indexes
+   *	For the matrix factorization since the customer id were not in sequence so we have created a label mapping for each customer id as indexes
    *  The data for matrix factorization is huge and due to hardware limitation we have removed the data having user id frequency less that 50 in overall corpus. Apart from this we have limited the number of unique movies to 3000
    * For implementaion of ALS in distributed environment we have rating matrix of size 86059*3000. This matrix is sparse matrix and used by RDD for minimization. Since the matrices are large we have used the Broadcast approach as mentioned in the paper. It makes copy of matrices at every node. 
   
@@ -99,7 +100,7 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
   
   
   * **Recommended Movie : (Movie_id, Title, Rank, Total Users watched the movie) :**
-   Recommended movies starting are highlighted as bold, also these movies are watched by the users who watched the movies watched by        this user.
+   Recommended movies starting are highlighted as bold, also these movies are watched by the users who watched the movies watched by this user.
       ####
       ##### Movies Watched By user #######
             ('1905', 'Pirates of the Caribbean: The Curse of the Black Pearl', 0.0055328796947541675, 153325)
