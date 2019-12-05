@@ -349,7 +349,17 @@
   ### Movie Rating Prediction using Matrix Factorization using Alternate Least Mean Squarred Error
     * **Observation**:
       
-      * Below table shows the RMSE for different K and for different number of iterations. These are the obseravtion for total users            86059 and  30001 movies. As explained in above preprocessing steps have considered all the users having frequency of greater than        50 and we have taken only 3000 movies with rating 4 and above. We have to do this to 
+      * Below table shows the RMSE for different K and for different number of iterations. These are the obseravtion for total users            86059 and  30001 movies. As explained in above preprocessing steps have considered all the users having frequency of greater than        50 and we have taken only 3000 movies with rating 4 and above. Due to the hardware limitation we have to shrink our data. We have observed that because of this shrink in data has resulted in a very a sparse user, movie rating matrix and that has resulted in a high RMSE values. And also for the larger data we need larger value of K with more number of iteration to observe the convergence.
+      
+      | K |  Iterations | RMSE |
+      |----|------------|-------|
+      | 20 | 20 | {}|
+      | 50 | 20 | {}|
+      | 70 | 20 | {} |
+      
+      | Content Cell  | Content Cell  |
+      | Content Cell  | Content Cell  |
+
  
 ## Work Division
 ## References
