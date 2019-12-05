@@ -27,7 +27,8 @@
   
   ### Recommended Movie : (Movie_id, Title, Rank, Total Users watched the movie) :
   #### Recommended movies starting are highlighted as bold, also these movies are watched by the users who watched the movies watched by        this user.
-  ('1905', 'Pirates of the Caribbean: The Curse of the Black Pearl', 0.0055328796947541675, 153325)
+      ####
+      ('1905', 'Pirates of the Caribbean: The Curse of the Black Pearl', 0.0055328796947541675, 153325)
       ('2452', 'Lord of the Rings: The Fellowship of the Ring', 0.005418893550783347, 129794)
       ('571', 'American Beauty', 0.00541744969469533, 111768)
       ('3938', 'Shrek 2', 0.0053476763107867375, 120442)
