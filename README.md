@@ -23,12 +23,28 @@ To design and compare two movie recommendation systems for a user based on self 
 ## Approach
 * Personalized Page Rank:
   For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and Authority.
-  We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user product interaction and try to recomment movies to user based on the liking of user similar to the user.
+  We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user product interaction and try to recommend movies to user based on the liking of similar user with a given user.
   
-  rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
-  rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
+       rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
+       rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
   
-  Using above equation we are calculating global ranking of the movies 
+ 
+        rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
+        rank of user = (1-e)*sum (rank of movies watched by the user/ total number of movies watched by the user ) + e (if user =u)
+        
+        Here, e is teleporation factor and it is added when we match a user id of the user for which we want to find the recommendation.
+        
+       
+  * Matrix Factorization using ALS:
+    
+    We have implemented Matrix Factorization using Alternate Mean Square method. In this we are first creating a sparse matrix which will have rating information of movie watched by the users.
+    
+    For Generating the factorized matrix we have used ALS method.  To run this algorithm on a distributed environment we have referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr 
+  
+      
+      
+                  
+
  
  
  
