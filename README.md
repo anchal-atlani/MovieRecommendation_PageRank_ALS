@@ -39,7 +39,8 @@ To design and compare two movie recommendation systems for a user based on self 
     
     We have implemented Matrix Factorization using the Alternate Mean Square method. In this, we are first creating a sparse matrix that     will have rating information on the movie watched by the users.
     
-    For Generating the factorized matrix we have used the ALS method.  To run this algorithm on a distributed environment we have           referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015http://stanford.edu/~rezab/dao.Instructor:  Reza       Zadeh, Databr " .
+    For Generating the factorized matrix we have used the ALS method.  To run this algorithm on a distributed environment we have           referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015 
+ http://stanford.edu/~rezab/dao.Instructor:  Reza       Zadeh, Databr " .
   
    In this first, we have created a Rating Matrix having original ratings and initialised two matrices with random values 
     corresponds to the P and Q matrix.
@@ -65,12 +66,21 @@ To design and compare two movie recommendation systems for a user based on self 
     * nltk, numpy, spark
 ## Step Implemented
 
+   * In Page Rank we have taken complete corpus and we got 9201 unique movies and 470860 unique users.
+   * For both the algorithm we have taken only movies which are rated 4 and above as in Page Rank we are considering to recommend movies which are liked by other users and liking we are defining in terms of rating.
    * For Page Rank Algorithm we have just read the data file and converted a link graph out of it.
+   * After the complete eecution of Page Rank we are mapping the movie id with thier respective titles.
    *	For the matrix factorization since the customer id were not in sequence so we have created a label mapping for each customer id as       indexes
    *  The data for matrix factorization is huge and due to hardware limitation we have removed the data having user id frequency less that 50 in overall corpus. Apart from this we have limited the number of unique movies to 3000
-   * 
+   * For implementaion of ALS in distributed environment we have rating matrix of size 86059*3000. This matrix is sparse matrix and used by RDD for minimization. Since the matrices are large we have used the Broadcast approach as mentioned in the paper. It makes copy of matrices at every node. 
+  
 
 ## Final Product
+ * Implemented two algorithms Personalized Page Rank and Matrix Factorization using ALS for movie recommendation system.
+ * After the complete iterations we have given the option for calculation of rating for each movie for a specific user.
+ * As a final product of Personlized Page Rank we can pass any user id and let algorithm compute the recommendations.
+ * As a final product of Matrix Factorization algorithm can recommend a movie based on the predicted ratings.
+ 
  
 ## Results
 
@@ -448,5 +458,5 @@ To design and compare two movie recommendation systems for a user based on self 
 * https://web.stanford.edu/~ashishg/msande235/spr08_09/Lecture13.pdf
 * https://www.nltk.org/
 
-## Context and Motivation for the page Rank and useful fun factors
-## Data Set descriptions
+
+
