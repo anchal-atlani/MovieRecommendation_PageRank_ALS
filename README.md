@@ -8,7 +8,14 @@
   * Srishtee Marotkar - smarotka@uncc.edu 801084153
   
 ## Overview
-To design and compare two movie recommendation systems for a user based on self or similar user’s likings. We will be implementing two recommendation systems, first Using the Personalized PageRank algorithm and second using the Matrix Factorization using Alternate Least Square algorithm on the distributed computing environment
+To design and compare two movie recommendation systems for a user based on self or similar user’s likings. We will be implementing two recommendation systems, first Using the Personalized PageRank algorithm and second using the Matrix Factorization using Alternate Least Square algorithm on the distributed computing environment.
+
+## Motivation
+
+Providing relevant recommendations has helped users to explore their area of interest and has proved to be an evident factor in retaining customers. Considering the explosion of data due to the vast number of users and movies not only the efficient algorithms are necessary but also computation should be done in a distributed fashion in order to get results in the blink of an eye.
+
+## Fun Factor
+After learning Page Rank algorithm and Hubs and Authority we came read papers on these topics and found out that we can combine both the approaches to generate recommendations.Consider that we have a set of users and a set of movies that each user enjoyed watching and this movie is watched by a few other users as well. A movie is relevant to me if other similar users enjoyed it. A user is similar to me in case they like movies that are relevant to me. We can use this interdependent relationship graph between users and movies to get rankings of relevant movies using the Personalized PageRank algorithm. 
 
 ## Task Involved
   
@@ -21,26 +28,26 @@ To design and compare two movie recommendation systems for a user based on self 
   
 
 ## Approach
-* Personalized Page Rank:
-  For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and Authority.
-  We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are       taking user product interaction and try to recommend movies to user based on the liking of similar user with a given user.
+* **Personalized Page Rank:**
+  For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and         Authority.
+  We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach   we are taking user product interaction and try to recommend movies to user based on the liking of similar user with a given   user.
   
        rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
        rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
   
  
         rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
-        rank of user = (1-e)*sum (rank of movies watched by the user/ total number of movies watched by the user ) + e (if user =u)
+        rank of user = (1-e)*sum (rank of movies watched by the user/ total number of movies watched by the user ) + e (if                           user =u)
         
         Here, e is teleporation factor and it is added when we match a user id of the user for which we want to find the recommendation.
         
        
-  * Matrix Factorization using ALS:
+  * **Matrix Factorization using ALS:**
     
-    We have implemented Matrix Factorization using the Alternate Mean Square method. In this, we are first creating a sparse matrix that     will have rating information on the movie watched by the users.
+    We have implemented Matrix Factorization using the Alternate Mean Square method. In this, we are first creating a sparse matrix that will have rating information on the movie watched by the users.
     
-    For Generating the factorized matrix we have used the ALS method.  To run this algorithm on a distributed environment we have           referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015 
- http://stanford.edu/~rezab/dao.Instructor:  Reza       Zadeh, Databr " .
+    For Generating the factorized matrix we have used the ALS method.  To run this algorithm on a distributed environment we have referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015 
+ http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr " .
   
    In this first, we have created a Rating Matrix having original ratings and initialised two matrices with random values 
     corresponds to the P and Q matrix.
@@ -52,16 +59,7 @@ To design and compare two movie recommendation systems for a user based on self 
                 Minimize objective fuction
                  p= (sum(QTQ) + lambda* I)^-1* sum(rating_ui * Q)
                  q= (sum(PTP) +lambda *I)^-1 * sum(rating_ui * P)
-                 
-   
-                 
-   
-      
-      
                   
-
- 
- 
  ## Pacakages Used
     * nltk, numpy, spark
 ## Step Implemented
@@ -95,12 +93,12 @@ To design and compare two movie recommendation systems for a user based on self 
   
   
     This can be verfied by seeing the link graph of customer 
-  * **Link Graph: (UserId, [movies watched by user id], (rank=1/ (total number of users) )
+  * **Link Graph: (UserId, [movies watched by user id], (rank=1/ (total number of users) )**
   
   * **('1110480', (['28', '30', '46', '187', '191', '241', '290', '297', '311', '312', '313', '329', '331', '353', '357', '393', '471', '482', '534', '571', '607', '645', '758', '788', '886', '897', '989', '1039', '1102', '1180', '1250', '1428', '1470', '1503', '1509', '1590', '1673', '1719', '1754', '1770', '1865', '1905', '1962', '1974', '2015', '2016', '2095', '2122', '2172', '2342', '2372', '2395', '2452', '2462', '2465', '2470', '2519', '2699', '2743', '2862', '2874', '2940', '3151', '3197', '3282', '3368', '3371', '5085', '5181', '5226', '5227', '5231', '5237', '5401', '5472', '5496', '5522', '5538', '5582', '5601', '5658', '5695', '5762', '5788', '5814', '5862', '5926', '5963', '6029', '6034', '6040', '6042', '6099', '6134', '6195', '6219', '6274', '6329', '6337', '6350', '6366', '3446', '3510', '3593', '3624', '3648', '3684', '3713', '3782', '3817', '3860', '3875', '3905', '3917', '3938', '3954', '4043', '4141', '4227', '4345', '4384', '4432', '4488', '4586', '4588', '4641', '4660', '4727', '4745', '4829', '4890', '4906', '4912', '4951', '5020', '6450', '6464', '6473', '6475', '6555', '6596', '6736', '6796', '6850', '6872', '6874', '6953', '6960', '6974', '7237', '7281', '7363', '7511', '7513', '7517', '7586', '7635', '7683', '7701', '7786', '7904', '7928', '7971', '8045', '8131', '8197', '8393', '8469', '8619', '8644', '8743', '8782', '8806', '8832', '8846', '8872', '8966', '9051', '9170', '9175'], 2.1105684605091537e-06))**
   
   
-  * **Recommended Movie : (Movie_id, Title, Rank, Total Users watched the movie) :
+  * **Recommended Movie : (Movie_id, Title, Rank, Total Users watched the movie) :**
    Recommended movies starting are highlighted as bold, also these movies are watched by the users who watched the movies watched by        this user.
       ####
       ##### Movies Watched By user #######
