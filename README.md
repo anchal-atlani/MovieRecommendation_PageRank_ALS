@@ -39,15 +39,25 @@ To design and compare two movie recommendation systems for a user based on self 
     
     We have implemented Matrix Factorization using Alternate Mean Square method. In this we are first creating a sparse matrix which will have rating information of movie watched by the users.
     
-    For Generating the factorized matrix we have used ALS method.  To run this algorithm on a distributed environment we have referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr 
+    For Generating the factorized matrix we have used ALS method.  To run this algorithm on a distributed environment we have referred the paper "CME 323: Distributed Algorithms and Optimization, Spring 2015http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr " .
   
+  In this first we have created a Rating Matrix having original ratings and intiliased two matrices with random values corresponds to P and Q matrix.
+  
+ In each iteration as per the ALS method we are keeping first P constant and trying to predict values for Q and then keeping Q constant and trying to predict values for P. Since each row updation of each matrix is independent of each other and hence they can be updated independently and then we can get a overall matrix.
+ 
+                Minimize objective fuction
+                 p= (sum(QTQ) + lambda* I)^-1* sum(rating_ui * Q)
+                 q= (sum(PTP) +lambda *I)^-1 * sum(rating_ui * P)
+                 
+                 
+ 
       
       
                   
 
  
  
- 
+ ## Pacakages 
   ## Page Rank ALgo and ALS Algo, framework, other pacakages, nltk, numpy
 ## Step Implemented
 ## Final Product
