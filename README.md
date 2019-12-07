@@ -33,6 +33,9 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
   
   We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user-product interaction and try to recommend movies to the user based on the liking of similar user with a given user.
   
+  
+  ![!PageRank Image](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageRankImage.PNG)
+  
        rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
        rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
   
