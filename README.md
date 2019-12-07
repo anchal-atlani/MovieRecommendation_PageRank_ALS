@@ -35,7 +35,9 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
   
   
     ![PageRank Image](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageRankImage.PNG)
-             Figure: User-Movie Interaction
+             
+    
+     Figure: User-Movie Interaction
   
        rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
        rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
