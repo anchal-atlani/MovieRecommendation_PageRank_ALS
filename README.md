@@ -46,6 +46,8 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
         rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
         rank of user = (1-e)*sum (rank of movies watched by the user/ total number of movies watched by the user ) + e (if                           user =u)
         
+     ![PageREquation](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageREquation.PNG)
+        
         Here, e is teleportation factor and it is added when we match a user id of the user for which we want to find the recommendation.
         
 
