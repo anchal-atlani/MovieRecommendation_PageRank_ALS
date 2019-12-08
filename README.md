@@ -80,7 +80,7 @@ http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr " .
    *	For the matrix factorization since the customer id were not in sequence so we have created a label mapping for each customer id as indexes
    *  The data for matrix factorization is huge and due to hardware limitation we have removed the data having user id frequency less that 50 in overall corpus. Apart from this we have limited the number of unique movies to 3000
    * For implementaion of ALS in distributed environment we have rating matrix of size 86059*3000. This matrix is sparse matrix and used by RDD for minimization. Since the matrices are large we have used the Broadcast approach as mentioned in the paper. It makes copy of matrices at every node. 
-  
+
 
 ## Final Product
  * Implemented two algorithms Personalized Page Rank and Matrix Factorization using ALS for movie recommendation system.
@@ -440,7 +440,16 @@ http://stanford.edu/~rezab/dao.Instructor:  Reza Zadeh, Databr " .
 (29, 0.6302085880930941)|
 
       
-      
+ ## Our Progress
+* Part which is completed as planned:
+ * Complete implementation of Personalized Pagerank 
+ * Compete Implementation of matrix factorization using Alternate Least square.
+ * Able to Analyze the movie recommendations provided by Personalized Pagerank
+ * Able to learn how preprocessing should be given keen attention to get converged results when using Alternate Least Square algorithm’s    implementation.
+
+* Part needs efforts of
+ * Our implementation of Matrix factorization using Alternate Least square is working fine when given matrix of random values on AWS        clusters, while Rating matrix generated from our dataset need to be revisited to generate good results or convergence to generate the    recommendation for movies for any given user. 
+
 
  
 ## Work Division
