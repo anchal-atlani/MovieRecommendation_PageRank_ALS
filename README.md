@@ -29,7 +29,8 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
 
 ## Approach
 * **Personalized Page Rank Implementation:**
-  For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and                Authority. We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user-product interaction and try to recommend movies to the user based on the liking of similar user with a given user.
+
+For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and                Authority. We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user-product interaction and try to recommend movies to the user based on the liking of similar user with a given user.
   
  
 * Our dataset consists of customers and set of movies they enjoyed watching. This can also be extracted as the movie which all user       watched. So we can say that our data can give us to link graphs:
@@ -38,8 +39,11 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
 * So if we have this information, we can across few papers which illustrates that we can combine the concept of random walk using Page     rank and hub and authorities to generate the recommendations for any user using personalized page rank along with hubs and a             authorities.
 * First to calculate the global ranking of movies to be recommended : We use Customer to movie lingraph. In pyspark this link graph is     an RDD holding the tuple in form (customerId, [movies liked], ranking), now we emit movie ID along with its current rating. Now we       reduce it on key i.e. movie ID and add up all the ranking it was emitted with. Thus now we get new link graph RDD in form  (movieId,     [Customer watched id], (rating/total customer liked id) ).
 *  Above process is done in multiple iterations until either it converges or any number we want to run it for. We have ran it for 10        times and also it has shown us converged ranking.
+* First to calculate the personalized ranking of movies to be recommended: We follow step 5 and 6 but in step 5 once we have RDD in form   ((customerId, [movies liked], ranking) here we run one more mapper and check if customerID is matching to the customer which user has   provided. If yes then we do teleporting by adding the factor of 0.85 as mentioned in equation (2) above. Else we just add 1-0.85 =       0.15 to the rest of the customers.
+* Thus, through this implementation by doing teleporting we have achieved getting the personalized recommendation of movies and without   doing that you can extract the global ranking of the movies.
 
 
+Below is the figure, in this on one side we have user and other side movie. It depicts the interaction of user and movie.
     ![PageRank Image](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageRankImage.PNG)
              
     
