@@ -56,10 +56,10 @@ Below is the figure, in this on one side we have user and other side movie. It d
         rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
         rank of user = (1-e)*sum (rank of movies watched by the user/ total number of movies watched by the user ) + e (if                           user =u)
        
-     **Equation**
-     ![PageREquation](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageREquation.PNG)
+  **Equation**
+  ![PageREquation](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageREquation.PNG)
         
-       Here, e is teleportation factor and it is added when we match a user id of the user for which we want to find the recommendation.
+   Here, e is the teleportation factor and it is added when we match a user id of the user for which we want to find the recommendation.
         
 
  * **Matrix Factorization using ALS:**
