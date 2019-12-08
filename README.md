@@ -28,16 +28,22 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
   
 
 ## Approach
-* **Personalized Page Rank:**
-  For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and         Authority.
+* **Personalized Page Rank Implementation:**
+  For implementing Personlized Page Rank based recommendation system we have used the concept of Page Rank and Hubs and                Authority. We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user-product interaction and try to recommend movies to the user based on the liking of similar user with a given user.
   
-  We have referred https://web.stanford.edu/class/msande233/handouts/lecture8.pdf paper for implementation. In this approach we are taking user-product interaction and try to recommend movies to the user based on the liking of similar user with a given user.
-  
-  
+ 
+* Our dataset consists of customers and set of movies they enjoyed watching. This can also be extracted as the movie which all user       watched. So we can say that our data can give us to link graphs:
+   * Customer to all the movies he liked
+   * Movies that are liked by all the customers
+* So if we have this information, we can across few papers which illustrates that we can combine the concept of random walk using Page     rank and hub and authorities to generate the recommendations for any user using personalized page rank along with hubs and a             authorities.
+* First to calculate the global ranking of movies to be recommended : We use Customer to movie lingraph. In pyspark this link graph is     an RDD holding the tuple in form (customerId, [movies liked], ranking), now we emit movie ID along with its current rating. Now we       reduce it on key i.e. movie ID and add up all the ranking it was emitted with. Thus now we get new link graph RDD in form  (movieId,     [Customer watched id], (rating/total customer liked id) ).
+*  Above process is done in multiple iterations until either it converges or any number we want to run it for. We have ran it for 10        times and also it has shown us converged ranking.
+
+
     ![PageRank Image](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageRankImage.PNG)
              
     
-     Figure: User-Movie Interaction
+     
   
        rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
        rank of user = sum (rank of movies watched by the user/ total number of movies watched by the user )
@@ -45,10 +51,11 @@ After learning Page Rank algorithm and Hubs and Authority we came read papers on
  
         rank of movie = sum(rank of users who watched this movie/ total number of user watched the movie)
         rank of user = (1-e)*sum (rank of movies watched by the user/ total number of movies watched by the user ) + e (if                           user =u)
-        
+       
+     **Equation**
      ![PageREquation](https://github.com/anchal-atlani/MovieRecommendation_PageRank_ALS/blob/master/PageREquation.PNG)
         
-        Here, e is teleportation factor and it is added when we match a user id of the user for which we want to find the recommendation.
+       Here, e is teleportation factor and it is added when we match a user id of the user for which we want to find the recommendation.
         
 
  * **Matrix Factorization using ALS:**
